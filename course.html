@@ -1,0 +1,887 @@
+<!doctype html>
+<html lang="mn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Хичээлүүд & Сургалт - Цогтбаатарын Энхтуяа</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      /* Энгийн, цэвэр аккордион карт */
+      details.clean-accordion {
+        background-color: #ffffff;
+        border: 1px solid #cbd5e1;
+        border-radius: 6px;
+        margin-bottom: 14px;
+        overflow: hidden;
+      }
+
+      details.clean-accordion[open] {
+        border-color: #0284c7;
+      }
+
+      summary.clean-summary {
+        list-style: none !important;
+        padding: 14px 18px;
+        background-color: #f8fafc;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-left: 4px solid #0284c7;
+        user-select: none;
+        transition: background-color 0.2s ease;
+      }
+
+      summary.clean-summary::-webkit-details-marker,
+      summary.clean-summary::marker {
+        display: none !important;
+      }
+
+      summary.clean-summary:hover {
+        background-color: #f0f9ff;
+      }
+
+      details.clean-accordion[open] summary.clean-summary {
+        background-color: #f0f9ff;
+        border-bottom: 1px solid #e2e8f0;
+      }
+
+      .summary-text-group {
+        flex: 1;
+        padding-right: 12px;
+      }
+
+      .summary-badges {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        margin-bottom: 6px;
+      }
+
+      .badge-simple {
+        display: inline-block;
+        padding: 2px 8px;
+        border-radius: 4px;
+        font-size: 11.5px;
+        font-weight: 600;
+        border: 1px solid #cbd5e1;
+        background-color: #ffffff;
+        color: #334155;
+      }
+
+      .badge-simple-primary {
+        background-color: #e0f2fe;
+        color: #0369a1;
+        border-color: #bae6fd;
+      }
+
+      .summary-main-title {
+        margin: 0 0 4px 0;
+        font-size: 16.5px;
+        font-weight: 700;
+        color: #0f172a;
+      }
+
+      .summary-sub-info {
+        margin: 0;
+        font-size: 13px;
+        color: #475569;
+      }
+
+      .summary-toggle-btn {
+        font-size: 12.5px;
+        font-weight: 600;
+        color: #0284c7;
+        background-color: #ffffff;
+        border: 1px solid #0284c7;
+        padding: 4px 10px;
+        border-radius: 4px;
+        white-space: nowrap;
+      }
+
+      .clean-accordion-body {
+        padding: 18px 20px;
+        background-color: #ffffff;
+      }
+
+      .clean-accordion-body h4 {
+        margin-top: 14px;
+        margin-bottom: 6px;
+        font-size: 15px;
+        color: #0369a1;
+      }
+
+      .clean-accordion-body h4:first-child {
+        margin-top: 0;
+      }
+
+      .poster-info-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        align-items: flex-start;
+      }
+
+      .poster-col {
+        flex: 0 0 240px;
+        max-width: 260px;
+        margin: 0 auto;
+      }
+
+      .poster-col img {
+        width: 100%;
+        height: auto;
+        border: 1px solid #e2e8f0;
+        border-radius: 6px;
+      }
+
+      .info-col {
+        flex: 1 1 300px;
+      }
+
+      @media (max-width: 768px) {
+        summary.clean-summary {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 8px;
+        }
+        .poster-col {
+          max-width: 100%;
+          flex: 1 1 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="site-wrapper">
+      <!--  БЛОК 1: НАВИГАЦИ ХЭСЭГ (Цайвар цэнхэр)-->
+      <header class="block-nav">
+        <h1 class="site-title">Цогтбаатарын Энхтуяа</h1>
+        <p class="site-subtitle">
+          МУИС-ийн багш | AI ба Гүн сургалтын судлаач | "Magic Code AI"-г үүсгэн
+          байгуулагч
+        </p>
+        <nav>
+          <ul>
+            <li><a href="index.html">Нүүр</a></li>
+            <li><a href="about.html">Миний тухай</a></li>
+            <li><a href="muis.html">МУИС</a></li>
+            <li><a href="course.html" class="active">Хичээлүүд</a></li>
+            <li><a href="business.html">Бизнес ба Нийгэм</a></li>
+            <li><a href="magic-code-ai.html">Magic Code AI</a></li>
+            <li><a href="contact.html">Холбоо барих</a></li>
+          </ul>
+        </nav>
+      </header>
+
+      <!-- 
+             БЛОК 2: БАГШИЙН ТУРШЛАГА & ОНЦЛОХ ҮЗҮҮЛЭЛТ
+              -->
+      <section class="content-block">
+        <h2 class="block-title">Багшлах туршлага ба Сургалтын үйл ажиллагаа</h2>
+
+        <p class="block-image-caption">
+          МУИС-ийн Их Сургуулийн Сургалт &bull; IT Park &bull; Magic Code AI
+          Мэргэшүүлэх Хөтөлбөрүүд
+        </p>
+
+        <div
+          style="
+            background-color: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-left: 4px solid #0284c7;
+            border-radius: 6px;
+            padding: 16px 20px;
+            margin: 16px 0;
+          "
+        >
+          <p
+            style="
+              margin: 0;
+              font-size: 14.5px;
+              color: #334155;
+              line-height: 1.65;
+            "
+          >
+            <strong>Цогтбаатарын Энхтуяа</strong> нь боловсролын салбарт
+            <strong>17 жил</strong> компьютерийн багшаар ажилласан бөгөөд
+            компьютерийн ухааны <strong>18 төрлийн</strong> хичээлүүдийг нийт
+            <strong>10,000 орчим оюутан, мэргэжилтнүүдэд</strong> зааж сургасан
+            туршлагатай. Сүүлийн жилүүдэд МУИС-ийн хичээлүүдээс гадна Мэдээллийн
+            технологийн үндэсний парк (IT Park) болон Magic Code AI академиар
+            дамжуулан
+            <strong>Хиймэл Оюун (AI), Дата Анализ, Power BI</strong> чиглэлээр
+            VIP болон танхим/онлайн сургалтуудыг тогтмол зохион байгуулж байна.
+          </p>
+        </div>
+      </section>
+
+      <!-- 
+             БЛОК 3: МЭРГЭЖЛИЙН БА ПРАКТИК СУРГАЛТУУД (АККОРДИОН)
+              -->
+      <section class="content-block">
+        <h2 class="block-title">
+          Мэргэжлийн ба Практик Сургалтууд (Дарж дэлгэрэнгүйг харна уу)
+        </h2>
+        <p style="margin-bottom: 18px; color: #475569; font-size: 14px">
+          <em
+            >Доорх сургалтын картууд дээр дарахад албан ёсны постер,
+            нарийвчилсан хөтөлбөр, хугацаа, төлбөр, шаардлагууд дэлгэгдэн
+            харагдана:</em
+          >
+        </p>
+
+        <!-- СУРГАЛТ 1: POWER BI АХИСАН ШАТ -->
+        <details class="clean-accordion">
+          <summary class="clean-summary">
+            <div class="summary-text-group">
+              <div class="summary-badges">
+                <span class="badge-simple badge-simple-primary"
+                  >IT Park Mongolia</span
+                >
+                <span class="badge-simple">Ахисан шат</span>
+                <span class="badge-simple">Бүртгэл явагдаж байна</span>
+              </div>
+              <div class="summary-main-title">
+                POWER BI АХИСАН ШАТНЫ СУРГАЛТ
+              </div>
+              <p class="summary-sub-info">
+                Огноо: 2026.11.03, 11.05 | Мягмар, Пүрэв 10:00 - 17:20 | Багш:
+                МУИС - Ц.Энхтуяа | Төлбөр: 800,000 төгрөг
+              </p>
+            </div>
+            <span class="summary-toggle-btn">[Дэлгэрэнгүй харах]</span>
+          </summary>
+          <div class="clean-accordion-body">
+            <div class="poster-info-row">
+              <div class="poster-col">
+                <img
+                  src="images/poster_powerbi_advanced.jpg"
+                  alt="IT Park Power BI Ахисан шатны сургалтын постер"
+                />
+                <p class="block-image-caption">
+                  Мэдээллийн технологийн үндэсний парк
+                </p>
+              </div>
+              <div class="info-col">
+                <h4>Сургалтын зорилго ба Агуулга</h4>
+                <p>
+                  Power BI-ийн дунд шатны мэдлэгтэй оролцогчдын өгөгдөл
+                  боловсруулах, өгөгдлийн загварчлал хийх, нарийвчилсан
+                  тооцоолол боловсруулах, тайлангийн гүйцэтгэл болон
+                  шинжилгээний чадвараа ахисан түвшинд хөгжүүлэхэд чиглэнэ.
+                </p>
+
+                <h4>Сургалтад хэн хамрагдах боломжтой вэ?</h4>
+                <ul
+                  style="padding-left: 20px; font-size: 13.5px; color: #334155"
+                >
+                  <li>
+                    Power BI-ийн дунд шатны мэдлэгтэй, тайлан боловсруулж байсан
+                    хүмүүс
+                  </li>
+                  <li>
+                    Power Query, Relationship болон DAX-ийн суурь ойлголттой
+                    мэргэжилтнүүд
+                  </li>
+                  <li>
+                    Өгөгдлийн шинжээч, тайлан хариуцсан ажилтан, BI хөгжүүлэгчид
+                  </li>
+                </ul>
+
+                <h4>Хөтөлбөрийн зохион байгуулалт:</h4>
+                <table>
+                  <tbody>
+                    <tr>
+                      <td style="width: 30%"><strong>Хугацаа:</strong></td>
+                      <td>2026 оны 11 дүгээр сарын 03, 05-ны өдрүүдэд</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Нийт хичээл:</strong></td>
+                      <td>Нийт 2 удаагийн бүтэн өдрийн эрчимжүүлсэн хичээл</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Өдрүүд, Цаг:</strong></td>
+                      <td>Мягмар, Пүрэв гарагт 10:00 - 17:20</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Анги дүүргэлт:</strong></td>
+                      <td>8 - 10 сурагч</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Сургалтын багш:</strong></td>
+                      <td>МУИС-ийн багш Ц.Энхтуяа</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Үндсэн төлбөр:</strong></td>
+                      <td>800,000 төгрөг</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Лавлах утас:</strong></td>
+                      <td>8089 0893 (IT Park)</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </details>
+
+        <!-- СУРГАЛТ 2: POWER BI ДУНД ШАТ -->
+        <details class="clean-accordion">
+          <summary class="clean-summary">
+            <div class="summary-text-group">
+              <div class="summary-badges">
+                <span class="badge-simple badge-simple-primary"
+                  >IT Park Mongolia</span
+                >
+                <span class="badge-simple">Дунд шат</span>
+                <span class="badge-simple">Бүртгэл явагдаж байна</span>
+              </div>
+              <div class="summary-main-title">POWER BI ДУНД ШАТНЫ СУРГАЛТ</div>
+              <p class="summary-sub-info">
+                Огноо: 2026.10.13, 10.15 | Мягмар, Пүрэв 10:00 - 17:20 | Багш:
+                МУИС - Ц.Энхтуяа | Төлбөр: 750,000 төгрөг
+              </p>
+            </div>
+            <span class="summary-toggle-btn">[Дэлгэрэнгүй харах]</span>
+          </summary>
+          <div class="clean-accordion-body">
+            <div class="poster-info-row">
+              <div class="poster-col">
+                <img
+                  src="images/poster_powerbi_intermediate.jpg"
+                  alt="IT Park Power BI Дунд шатны сургалтын постер"
+                />
+                <p class="block-image-caption">
+                  Мэдээллийн технологийн үндэсний парк
+                </p>
+              </div>
+              <div class="info-col">
+                <h4>Сургалтын зорилго ба Агуулга</h4>
+                <p>
+                  Power BI-ийн суурь мэдлэгтэй оролцогчдод өгөгдөл боловсруулах,
+                  бизнесийн шинжилгээ хийх, тайлан болон хяналтын самбарыг
+                  (Dashboard) илүү ахисан түвшинд боловсруулах мэдлэг, ур
+                  чадвараа гүнзгийрүүлэхэд чиглэнэ.
+                </p>
+
+                <h4>Сургалтад хэн хамрагдах боломжтой вэ?</h4>
+                <ul
+                  style="padding-left: 20px; font-size: 13.5px; color: #334155"
+                >
+                  <li>Power BI-ийн суурь мэдлэгтэй хүмүүс</li>
+                  <li>
+                    Бизнесийн шинжилгээ, тайлагналын чиглэлээр ажилладаг
+                    мэргэжилтнүүд
+                  </li>
+                  <li>Data Analyst чиглэлээр суралцаж буй хүмүүс</li>
+                  <li>
+                    Анхан шатны тайлан хийж чаддаг боловч илүү гүнзгийрүүлэх
+                    хүсэлтэй хүмүүс
+                  </li>
+                </ul>
+
+                <h4>Хөтөлбөрийн зохион байгуулалт:</h4>
+                <table>
+                  <tbody>
+                    <tr>
+                      <td style="width: 30%"><strong>Хугацаа:</strong></td>
+                      <td>2026 оны 10 дугаар сарын 13, 15-ны өдрүүдэд</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Нийт хичээл:</strong></td>
+                      <td>Нийт 2 удаагийн бүтэн өдрийн танхимын хичээл</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Өдрүүд, Цаг:</strong></td>
+                      <td>Мягмар, Пүрэв гарагт 10:00 - 17:20</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Анги дүүргэлт:</strong></td>
+                      <td>8 - 10 сурагч</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Сургалтын багш:</strong></td>
+                      <td>МУИС-ийн багш Ц.Энхтуяа</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Үндсэн төлбөр:</strong></td>
+                      <td>750,000 төгрөг</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Лавлах утас:</strong></td>
+                      <td>8089 0893 (IT Park)</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </details>
+
+        <!-- СУРГАЛТ 3: VIP CLASS - AI + DATA ANALYSIS + ETHICS -->
+        <details class="clean-accordion">
+          <summary class="clean-summary">
+            <div class="summary-text-group">
+              <div class="summary-badges">
+                <span class="badge-simple badge-simple-primary"
+                  >Magic Code AI</span
+                >
+                <span class="badge-simple">VIP Class</span>
+                <span class="badge-simple">Элсэлт байнга нээлттэй</span>
+              </div>
+              <div class="summary-main-title">
+                VIP CLASS: AI + DATA ANALYSIS + ETHICS (10 ЦОГЦ СЭДЭВ)
+              </div>
+              <p class="summary-sub-info">
+                Хугацаа: 3 сар | Бямба гараг бүр 10:00 - 13:00 | Байршил: M bank
+                Arena, FOM Coffee Shop | Утас: 94140478
+              </p>
+            </div>
+            <span class="summary-toggle-btn">[Дэлгэрэнгүй харах]</span>
+          </summary>
+          <div class="clean-accordion-body">
+            <div class="poster-info-row">
+              <div class="poster-col">
+                <img
+                  src="images/poster_vip_class_10topics.jpg"
+                  alt="Magic Code AI VIP Class постер"
+                />
+                <p class="block-image-caption">Magic Code AI хөтөлбөр</p>
+              </div>
+              <div class="info-col">
+                <h4>Сургалтын танилцуулга</h4>
+                <p>
+                  Ц.Энхтуяа багшийн санаачилсан Magic Code AI академийн VIP
+                  Class сургалт нь мэдээллийн технологи, хиймэл оюун, өгөгдлийн
+                  шинжилгээ, ёс зүйг цогцоор нь эзэмшүүлэх 3 сарын менторшип
+                  хөтөлбөр юм.
+                </p>
+
+                <h4>Сургалтын 10 сэдэв:</h4>
+                <ol
+                  style="
+                    padding-left: 20px;
+                    font-size: 13.5px;
+                    color: #334155;
+                    line-height: 1.6;
+                  "
+                >
+                  <li>
+                    <strong>Foundation of IT and Database:</strong> Мэдээллийн
+                    технологийн суурь ойлголт, компьютерийн зарчим, өгөгдлийн
+                    сангийн бүтэц, SQL хэлний үндэс.
+                  </li>
+                  <li>
+                    <strong>Algorithm:</strong> Програмчлалын логик дараалал,
+                    төрөл, үр ашиг тооцоолох аргачлал, бодит дадлага.
+                  </li>
+                  <li>
+                    <strong>Python Programming Language:</strong> Суурь синтакс,
+                    өгөгдлийн төрөл, функц, сангуудын хэрэглээ, төсөл дээр
+                    ажиллах чадвар.
+                  </li>
+                  <li>
+                    <strong>Machine Learning:</strong> Удирдагдсан ба
+                    удирдлагагүй сургалт, ангилал, регрессийн аргачлал.
+                  </li>
+                  <li>
+                    <strong>Deep Learning:</strong> Мэдрэлийн сүлжээ,
+                    TensorFlow, PyTorch framework, дүрс ба хэл боловсруулалт.
+                  </li>
+                  <li>
+                    <strong>Data Mining:</strong> Өгөгдөл цэвэрлэх, багцлах
+                    (clustering), холбоо хамаарлын дүрэм.
+                  </li>
+                  <li>
+                    <strong>Artificial Intelligence (AI):</strong> Оюун ухаант
+                    систем, робот техник, чатбот, компьютер хараа.
+                  </li>
+                  <li>
+                    <strong>Foundation of Network:</strong> Компьютерийн сүлжээ,
+                    протокол, IP хаяглалт, сервер-клиент бүтэц.
+                  </li>
+                  <li>
+                    <strong>Ethics in Research:</strong> Судалгааны ёс зүй,
+                    өгөгдлийн хамгаалалт, хариуцлагатай AI хэрэглээ.
+                  </li>
+                  <li>
+                    <strong>Information Security:</strong> Кибер хамгаалалт,
+                    халдлагаас сэргийлэх, нууцлал ба аюулгүй байдлын стратеги.
+                  </li>
+                </ol>
+
+                <h4>Хөтөлбөрийн мэдээлэл:</h4>
+                <table>
+                  <tbody>
+                    <tr>
+                      <td style="width: 30%"><strong>Хугацаа:</strong></td>
+                      <td>3 сар</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Хичээл орох өдөр:</strong></td>
+                      <td>Бямба гараг</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Цаг:</strong></td>
+                      <td>10:00 - 13:00</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Байршил:</strong></td>
+                      <td>
+                        Уранган групп, M bank Arena 1 давхарт FOM Coffee Shop
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><strong>Холбогдох утас:</strong></td>
+                      <td>94140478</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </details>
+
+        <!-- СУРГАЛТ 4: DATA ANALYSIS - FROM DATA TO DECISION -->
+        <details class="clean-accordion">
+          <summary class="clean-summary">
+            <div class="summary-text-group">
+              <div class="summary-badges">
+                <span class="badge-simple badge-simple-primary"
+                  >Magic Code AI</span
+                >
+                <span class="badge-simple">Танхим ба Online</span>
+                <span class="badge-simple">From Data to Decision</span>
+              </div>
+              <div class="summary-main-title">
+                DATA ANALYSIS: FROM DATA TO DECISION
+              </div>
+              <p class="summary-sub-info">
+                Excel, SQL, Python, Power BI | Бодит дата төсөл | Гэрчилгээ
+                олгоно | Утас: 94140478
+              </p>
+            </div>
+            <span class="summary-toggle-btn">[Дэлгэрэнгүй харах]</span>
+          </summary>
+          <div class="clean-accordion-body">
+            <div class="poster-info-row">
+              <div class="poster-col">
+                <img
+                  src="images/poster_data_analysis_magic.jpg"
+                  alt="Data Analysis From Data to Decision постер"
+                />
+                <p class="block-image-caption">Magic Code AI хөтөлбөр</p>
+              </div>
+              <div class="info-col">
+                <h4>Сургалтын зорилго</h4>
+                <p>
+                  Түүхий өгөгдлийг цуглуулах, цэвэрлэхээс эхлээд шинжилгээ хийх,
+                  интерактив dashboard тайлан бүтээх хүртэлх бүх шатыг заадаг
+                  практик хөтөлбөр.
+                </p>
+
+                <h4>Сэдвүүд:</h4>
+                <ul
+                  style="padding-left: 20px; font-size: 13.5px; color: #334155"
+                >
+                  <li>Өгөгдөл цуглуулах, цэвэрлэх, боловсруулах</li>
+                  <li>Excel: Data Analysis (Pivot, VLOOKUP, Charts)</li>
+                  <li>SQL: Мэдээллийн сангаас үр дүн шүүж гаргах</li>
+                  <li>Python: Pandas, NumPy, Data Visualization</li>
+                  <li>Power BI: Интерактив Dashboard ба Report</li>
+                  <li>Статистик шинжилгээ ба хамаарлын үнэлгээ</li>
+                  <li>Бодит дата төсөл дээр ажиллах</li>
+                  <li>Мэдээллийн ёс зүй ба аюулгүй байдал</li>
+                </ul>
+
+                <h4>Байршил ба холбогдох:</h4>
+                <p style="font-size: 13.5px; color: #334155">
+                  <strong>Утас:</strong> 94140478 |
+                  <strong>Цахим шуудан:</strong> magiccodeai@gmail.com<br />
+                  <strong>Байршил:</strong> Уран ганы зүүн талд, Цагдаа хотхон
+                  30а байр (Танхим ба Онлайн хосолсон)
+                </p>
+              </div>
+            </div>
+          </div>
+        </details>
+
+        <!-- СУРГАЛТ 5: МЭРГЭЖЛИЙН ДАТА АНАЛИСТ БЭЛТГЭХ VIP СУРГАЛТ -->
+        <details class="clean-accordion">
+          <summary class="clean-summary">
+            <div class="summary-text-group">
+              <div class="summary-badges">
+                <span class="badge-simple badge-simple-primary"
+                  >Magic Code AI</span
+                >
+                <span class="badge-simple">3 сарын VIP</span>
+                <span class="badge-simple">Уян хатан хуваарь</span>
+              </div>
+              <div class="summary-main-title">
+                МЭРГЭЖЛИЙН ДАТА АНАЛИСТ БЭЛТГЭХ VIP СУРГАЛТ /PYTHON, POWER BI/
+              </div>
+              <p class="summary-sub-info">
+                Хугацаа: 3 сар | Суралцах өдрөө сонгон хичээллэх боломжтой |
+                Утас: 94140478
+              </p>
+            </div>
+            <span class="summary-toggle-btn">[Дэлгэрэнгүй харах]</span>
+          </summary>
+          <div class="clean-accordion-body">
+            <div class="poster-info-row">
+              <div class="poster-col">
+                <img
+                  src="images/poster_data_analyst_vip.jpg"
+                  alt="Мэргэжлийн дата аналист бэлтгэх VIP сургалтын постер"
+                />
+                <p class="block-image-caption">Magic Code AI хөтөлбөр</p>
+              </div>
+              <div class="info-col">
+                <h4>Сургалтын онцлог</h4>
+                <p>
+                  Дата аналитикийн чиглэлээр мэргэшиж, хөдөлмөрийн зах зээлд
+                  өндөр үнэлэгдэх ур чадвар эзэмшихийг хүссэн хүмүүст зориулсан
+                  3 сарын VIP менторшип хөтөлбөр.
+                </p>
+
+                <h4>Давуу талууд:</h4>
+                <ul
+                  style="padding-left: 20px; font-size: 13.5px; color: #334155"
+                >
+                  <li>
+                    Суралцагч өөрийн цагтаа тохируулан өдрөө сонгох уян хатан
+                    боломж
+                  </li>
+                  <li>Python, Pandas, Power BI, SQL хосолсон сургалт</li>
+                  <li>
+                    МУИС-ийн туршлагатай багштай ганцаарчлан ажиллах менторшип
+                  </li>
+                  <li>Байгууллагын бодит өгөгдөл дээр төсөл хийнэ</li>
+                </ul>
+
+                <p style="font-size: 13.5px; color: #334155">
+                  <strong>Лавлах утас:</strong> 94140478
+                </p>
+              </div>
+            </div>
+          </div>
+        </details>
+      </section>
+
+      <!-- 
+             БЛОК 4: МУИС-ИЙН АКАДЕМИК ХИЧЭЭЛҮҮД
+              -->
+      <section class="content-block">
+        <h2 class="block-title">
+          МУИС дахь академик цөм хичээлүүд (University Courses)
+        </h2>
+
+        <p>
+          Цогтбаатарын Энхтуяа багш нь МУИС-ийн Мэдээллийн технологи,
+          электроникийн сургууль (МТЭС)-ийн Мэдээлэл, компьютерын ухааны тэнхимд
+          бакалавр болон магистрын түвшинд дараах 5 үндсэн чиглэлээр хичээл зааж
+          байна:
+        </p>
+
+        <div class="skills-grid">
+          <div class="skill-card">
+            <h4>1. Хиймэл оюун ухаан (Artificial Intelligence)</h4>
+            <p>
+              Оюунлаг агентын бүтэц, хайлтын мод (BFS, DFS, A* оновчлол,
+              Minimax), мэдлэг дүрслэл, логик дүгнэлт ба машин сургалтын суурь
+              зарчмууд.
+            </p>
+            <div class="skill-tags">
+              <span class="skill-tag">Search Trees</span>
+              <span class="skill-tag">A* Algorithm</span>
+              <span class="skill-tag">Intelligent Agents</span>
+            </div>
+          </div>
+
+          <div class="skill-card">
+            <h4>2. Гүн сургалт ба Компьютер хараа (Deep Learning)</h4>
+            <p>
+              Хиймэл мэдрэлийн сүлжээний бүтэц (CNN, ResNet, U-Net, DenseNet),
+              дүрс боловсруулалт ба сегментчлэл.
+            </p>
+            <div class="skill-tags">
+              <span class="skill-tag">PyTorch</span>
+              <span class="skill-tag">CNN / U-Net</span>
+              <span class="skill-tag">Computer Vision</span>
+            </div>
+          </div>
+
+          <div class="skill-card">
+            <h4>3. Их өгөгдлийн шинжилгээ (Data Analysis)</h4>
+            <p>
+              Python хэл дээр өгөгдөл цэвэрлэх (Pandas, NumPy), статистик
+              шинжилгээ, Exploratory Data Analysis (EDA) болон өгөгдлийн
+              дүрслэл.
+            </p>
+            <div class="skill-tags">
+              <span class="skill-tag">Python (Pandas)</span>
+              <span class="skill-tag">EDA Modeling</span>
+              <span class="skill-tag">Data Visualization</span>
+            </div>
+          </div>
+
+          <div class="skill-card">
+            <h4>4. Байгууллагын мэдээллийн систем (Information Systems)</h4>
+            <p>
+              Байгууллагын нөөц төлөвлөлтийн систем (ERP), реляци өгөгдлийн
+              сангийн бүтэц (SQL), хүний нөөцийн систем (HRIS).
+            </p>
+            <div class="skill-tags">
+              <span class="skill-tag">System Design</span>
+              <span class="skill-tag">Database (SQL)</span>
+              <span class="skill-tag">ERP Architecture</span>
+            </div>
+          </div>
+
+          <div class="skill-card">
+            <h4>5. Алгоритмын хөгжүүлэлт (Algorithms)</h4>
+            <p>
+              Өгөгдлийн бүтцийн нарийн төвөгтэй хэлбэрүүд (Мод, граф, хэш),
+              алгоритмын үр ашиг (Big-O analysis), динамик програмчлал.
+            </p>
+            <div class="skill-tags">
+              <span class="skill-tag">Data Structures</span>
+              <span class="skill-tag">Complexity Analysis</span>
+              <span class="skill-tag">Optimization</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 
+             БЛОК 5: СУРГАЛТЫН АРГА БАРИЛ
+              -->
+      <section class="content-block">
+        <h2 class="block-title">Сургалтын онцлог ба 4 шатлалт арга барил</h2>
+
+        <img
+          src="images/teaching_method.jpg"
+          alt="Сургалтын цогц арга барил: Онол - Лаборатори - Төсөл - Практик чадамж"
+          class="block-image"
+          style="max-height: 190px; object-fit: contain"
+        />
+        <p class="block-image-caption">
+          МУИС ба Magic Code AI-д хэрэгжүүлдэг 4 шатлалт сургалтын дадлагажуулах
+          загвар
+        </p>
+
+        <div class="timeline-list">
+          <div class="timeline-item">
+            <div class="timeline-period">Шат 1 - Математик ба Онол</div>
+            <div class="timeline-title">
+              Онолын суурь концепц ба Алгоритм загварчлал
+            </div>
+            <p class="timeline-desc">
+              Аливаа технологийг хар хайрцаг байдлаар ашиглах бус, түүний цаадах
+              математик загвар, вектор тооцоолол, статистик үндэслэлийг гүн
+              ойлгуулдаг.
+            </p>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-period">Шат 2 - Шууд кодчилол</div>
+            <div class="timeline-title">
+              Лабораторийн туршилт ба Өгөгдөлтэй ажиллах дадал
+            </div>
+            <p class="timeline-desc">
+              Бэлэн код хуулахыг хориглож, суралцагч бүр бохир өгөгдлийг
+              цэвэрлэх, алдааг бие даан илрүүлж засах туршлага эзэмшдэг.
+            </p>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-period">Шат 3 - Төсөлт сургалт</div>
+            <div class="timeline-title">
+              Бодит амьдралын кейс ба Судалгааны төсөл
+            </div>
+            <p class="timeline-desc">
+              Оюутны судалгааны ажлыг бодит асуудал шийдэх чиглэлээр удирдаж,
+              эрдэм шинжилгээний хуралд өрсөлдөх хэмжээний төсөл болгон
+              чиглүүлдэг.
+            </p>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-period">Шат 4 - Чадамж ба Үнэлгээ</div>
+            <div class="timeline-title">
+              Бүтээгдэхүүний түвшинд хүргэх ба Баталгаажуулалт
+            </div>
+            <p class="timeline-desc">
+              Сургалтын төгсгөлд суралцагчийн гаргасан үр дүнг хэлэлцэж, код ба
+              архитектурыг практик шаардлагад нийцүүлэн бататгадаг.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 
+             БЛОК 6: СУРГАЛТАД БҮРТГҮҮЛЭХ БА ХОЛБОО БАРИХ
+              -->
+      <section class="content-block">
+        <h2 class="block-title">Сургалтад бүртгүүлэх ба Холбогдох</h2>
+        <p>
+          Дээр дурдсан сургалтуудад бүртгүүлэх болон байгууллагын захиалгат
+          сургалт зохион байгуулах хүсэлтээ дараах сувгуудаар ирүүлнэ үү:
+        </p>
+        <div
+          style="
+            background-color: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            padding: 16px 20px;
+            margin: 14px 0;
+          "
+        >
+          <p style="margin: 4px 0; font-size: 14px">
+            <strong>Magic Code AI лавлах утас:</strong> 94140478
+          </p>
+          <p style="margin: 4px 0; font-size: 14px">
+            <strong>IT Park Power BI сургалтын утас:</strong> 8089 0893
+          </p>
+          <p style="margin: 4px 0; font-size: 14px">
+            <strong>Цахим шуудан:</strong> magiccodeai@gmail.com
+          </p>
+          <p style="margin: 4px 0; font-size: 14px">
+            <strong>Байршил 1:</strong> Уранган групп, M bank Arena 1 давхар
+            (FOM Coffee Shop)
+          </p>
+          <p style="margin: 4px 0; font-size: 14px">
+            <strong>Байршил 2:</strong> Уран ганы зүүн талд, Цагдаа хотхон 30а
+            байр
+          </p>
+        </div>
+        <div style="margin-top: 14px">
+          <a href="magic-code-ai.html" class="btn"
+            >Magic Code AI төслийн танилцуулга</a
+          >
+          <a href="muis.html" class="btn btn-outline"
+            >МУИС дахь үйл ажиллагаа</a
+          >
+          <a href="contact.html" class="btn btn-outline"
+            >Багштай шууд холбогдох</a
+          >
+        </div>
+      </section>
+
+      <!-- 
+             ХӨЛ ХЭСЭГ (FOOTER)
+              -->
+      <footer class="block-footer">
+        <p>
+          &copy; 2026 он. Цогтбаатарын Энхтуяа. Бүх эрх хуулиар хамгаалагдсан.
+        </p>
+        <p>
+          Монгол Улсын Их Сургууль &bull; Мэдээллийн технологи, электроникийн
+          сургууль | <a href="contact.html">Холбоо барих хуудас</a>
+        </p>
+      </footer>
+    </div>
+  </body>
+</html>

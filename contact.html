@@ -1,0 +1,612 @@
+<!doctype html>
+<html lang="mn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Холбоо барих - Цогтбаатарын Энхтуяа</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      /* Холбоо барих хуудасны нэгдсэн загвар */
+      .contact-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 18px;
+        margin: 18px 0;
+      }
+
+      .contact-card {
+        background-color: #ffffff;
+        border: 1px solid #e2e8f0;
+        border-top: 4px solid #0284c7;
+        border-radius: 10px;
+        padding: 18px 20px;
+        box-shadow: 0 3px 10px rgba(15, 23, 42, 0.04);
+        transition: all 0.25s ease;
+      }
+
+      .contact-card:hover {
+        transform: translateY(-3px);
+        border-color: #0284c7;
+        box-shadow: 0 6px 18px rgba(2, 132, 199, 0.12);
+      }
+
+      .contact-card h4 {
+        margin: 0 0 8px 0;
+        font-size: 16px;
+        color: #0f172a;
+      }
+
+      .contact-card p {
+        font-size: 13.5px;
+        color: #475569;
+        margin: 4px 0;
+        line-height: 1.55;
+      }
+
+      .contact-card a {
+        color: #0284c7;
+        text-decoration: none;
+        font-weight: 600;
+      }
+
+      .contact-card a:hover {
+        text-decoration: underline;
+      }
+
+      /* ===================================================
+           МАЯГТЫН БҮРЭН ЦОГЦ ЗАГВАР (CONTACT FORM DESIGN)
+           =================================================== */
+      .form-container {
+        background-color: #ffffff;
+        border: 1px solid #e2e8f0;
+        border-top: 4px solid #0284c7;
+        border-radius: 12px;
+        padding: 28px 30px;
+        margin: 18px 0;
+        box-shadow: 0 4px 14px rgba(15, 23, 42, 0.04);
+      }
+
+      .form-intro {
+        font-size: 14px;
+        color: #64748b;
+        margin-bottom: 20px;
+      }
+
+      .form-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        margin-bottom: 18px;
+      }
+
+      .form-group {
+        flex: 1 1 240px;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .form-group-full {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 22px;
+      }
+
+      .form-group label,
+      .form-group-full label {
+        font-size: 13.5px;
+        font-weight: 600;
+        color: #334155;
+        margin-bottom: 7px;
+        display: flex;
+        align-items: center;
+      }
+
+      .required {
+        color: #ef4444;
+        margin-left: 4px;
+        font-weight: bold;
+      }
+
+      .form-group input,
+      .form-group select,
+      .form-group-full textarea {
+        padding: 11px 14px;
+        border: 1px solid #cbd5e1;
+        border-radius: 8px;
+        font-size: 14px;
+        color: #0f172a;
+        background-color: #f8fafc;
+        transition: all 0.2s ease;
+        box-sizing: border-box;
+        font-family: inherit;
+        width: 100%;
+      }
+
+      .form-group input::placeholder,
+      .form-group-full textarea::placeholder {
+        color: #94a3b8;
+        font-size: 13.5px;
+      }
+
+      .form-group input:focus,
+      .form-group select:focus,
+      .form-group-full textarea:focus {
+        outline: none;
+        border-color: #0284c7;
+        background-color: #ffffff;
+        box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.15);
+      }
+
+      .form-group select {
+        cursor: pointer;
+        appearance: none;
+        -webkit-appearance: none;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%230284c7' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 14px center;
+        background-size: 12px;
+        padding-right: 36px;
+      }
+
+      .form-group-full textarea {
+        resize: vertical;
+        min-height: 120px;
+        line-height: 1.6;
+      }
+
+      .form-actions {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+        flex-wrap: wrap;
+        margin-top: 6px;
+      }
+
+      .btn-submit {
+        display: inline-block;
+        background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+        color: #ffffff !important;
+        padding: 12px 28px;
+        border: none;
+        border-radius: 8px;
+        font-size: 14.5px;
+        font-weight: 700;
+        cursor: pointer;
+        transition: all 0.25s ease;
+        box-shadow: 0 3px 10px rgba(2, 132, 199, 0.25);
+        text-align: center;
+      }
+
+      .btn-submit:hover {
+        background: linear-gradient(135deg, #0369a1 0%, #075985 100%);
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(2, 132, 199, 0.35);
+      }
+
+      .btn-reset {
+        display: inline-block;
+        background-color: #f1f5f9;
+        color: #475569 !important;
+        border: 1px solid #cbd5e1;
+        padding: 12px 22px;
+        border-radius: 8px;
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        text-align: center;
+      }
+
+      .btn-reset:hover {
+        background-color: #e2e8f0;
+        color: #0f172a !important;
+      }
+
+      /* FAQ Аккордион */
+      details.faq-item {
+        background: #ffffff;
+        border: 1px solid #cbd5e1;
+        border-radius: 8px;
+        margin-bottom: 12px;
+        overflow: hidden;
+        transition: all 0.2s ease;
+      }
+
+      details.faq-item[open] {
+        border-color: #0284c7;
+        box-shadow: 0 3px 10px rgba(2, 132, 199, 0.08);
+      }
+
+      summary.faq-header {
+        padding: 14px 18px;
+        background: #f8fafc;
+        cursor: pointer;
+        font-weight: 700;
+        font-size: 14.5px;
+        color: #0f172a;
+        list-style: none !important;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-left: 4px solid #0284c7;
+        user-select: none;
+        transition: background-color 0.2s ease;
+      }
+
+      summary.faq-header::-webkit-details-marker,
+      summary.faq-header::marker {
+        display: none !important;
+      }
+
+      summary.faq-header:hover {
+        background: #f0f9ff;
+      }
+
+      details.faq-item[open] summary.faq-header {
+        background: #f0f9ff;
+        border-bottom: 1px solid #e2e8f0;
+      }
+
+      .faq-body {
+        padding: 16px 20px;
+        font-size: 14px;
+        color: #334155;
+        line-height: 1.65;
+        background: #ffffff;
+      }
+
+      @media (max-width: 768px) {
+        .form-container {
+          padding: 20px 18px;
+        }
+        .form-row {
+          flex-direction: column;
+          gap: 14px;
+        }
+        .form-actions {
+          flex-direction: column;
+        }
+        .form-actions button {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="site-wrapper">
+      <!-- ===================================================
+             БЛОК 1: НАВИГАЦИ ХЭСЭГ (Цайвар цэнхэр)
+             =================================================== -->
+      <header class="block-nav">
+        <h1 class="site-title">Цогтбаатарын Энхтуяа</h1>
+        <p class="site-subtitle">
+          МУИС-ийн багш | AI ба Гүн сургалтын судлаач | "Magic Code AI"-г үүсгэн
+          байгуулагч
+        </p>
+        <nav>
+          <ul>
+            <li><a href="index.html">Нүүр</a></li>
+            <li><a href="about.html">Миний тухай</a></li>
+            <li><a href="muis.html">МУИС</a></li>
+            <li><a href="course.html">Хичээлүүд</a></li>
+            <li><a href="business.html">Бизнес ба Нийгэм</a></li>
+            <li><a href="magic-code-ai.html">Magic Code AI</a></li>
+            <li><a href="contact.html" class="active">Холбоо барих</a></li>
+          </ul>
+        </nav>
+      </header>
+
+      <!-- ===================================================
+             БЛОК 2: ШУУД ХОЛБОО БАРИХ КАРТУУД
+             =================================================== -->
+      <section class="content-block">
+        <h2 class="block-title">Шууд Холбоо Барих Сувгууд</h2>
+        <p>
+          Та сургалт, эрдэм шинжилгээний хамтын ажиллагаа, бизнесийн зөвлөх
+          үйлчилгээ болон МЗБЭЭХ-ны үйл ажиллагааны талаар дараах сувгуудаар
+          холбогдох боломжтой:
+        </p>
+
+        <div class="contact-grid">
+          <!-- Утас -->
+          <div class="contact-card">
+            <h4>Лавлах Утас</h4>
+            <p>
+              <strong>Magic Code AI ба VIP сургалт:</strong>
+              <a href="tel:94140478">94140478</a>
+            </p>
+            <p>
+              <strong>IT Park Power BI сургалт:</strong>
+              <a href="tel:80890893">8089 0893</a>
+            </p>
+            <p style="font-size: 12px; color: #64748b">
+              (Даваа - Баасан 09:00 - 18:00)
+            </p>
+          </div>
+
+          <!-- Цахим шуудан -->
+          <div class="contact-card">
+            <h4>Цахим Шуудан</h4>
+            <p>
+              <strong>Бизнес ба Сургалт:</strong><br /><a
+                href="mailto:magiccodeai@gmail.com"
+                >magiccodeai@gmail.com</a
+              >
+            </p>
+            <p>
+              <strong>МУИС Академик хаяг:</strong><br /><a
+                href="mailto:enkhtuya.ts@num.edu.mn"
+                >enkhtuya.ts@num.edu.mn</a
+              >
+            </p>
+          </div>
+
+          <!-- Сошиал сүлжээ -->
+          <div class="contact-card">
+            <h4>Сошиал ба Портал</h4>
+            <p>
+              <strong>Facebook хуудас:</strong><br /><a
+                href="https://www.facebook.com/tsogtbaatar.enkhtuya/"
+                target="_blank"
+                rel="noopener"
+                >facebook.com/tsogtbaatar.enkhtuya</a
+              >
+            </p>
+            <p>
+              <strong>МУИС Профайл:</strong><br /><a
+                href="https://portal.num.edu.mn"
+                target="_blank"
+                rel="noopener"
+                >portal.num.edu.mn</a
+              >
+            </p>
+          </div>
+
+          <!-- Ажлын цаг -->
+          <div class="contact-card">
+            <h4>Цагийн Хуваарь</h4>
+            <p><strong>Даваа - Баасан:</strong> 09:00 - 18:00</p>
+            <p><strong>Бямба гараг:</strong> 10:00 - 13:00 (VIP Class)</p>
+            <p><strong>Ням гараг:</strong> Амарна</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================================
+             БЛОК 3: БАЙРШИЛ БА ОФФИСЫН ХАЯГУУД
+             =================================================== -->
+      <section class="content-block">
+        <h2 class="block-title">Оффис, Танхим ба Хичээллэх Байршлууд</h2>
+
+        <div class="skills-grid">
+          <div class="skill-card">
+            <h4>1. МУИС - МТЭС / МКУТ</h4>
+            <p>
+              Монгол Улсын Их Сургуулийн хичээлийн 3-р байр, Мэдээлэл,
+              компьютерын ухааны тэнхим, Багш нарын өрөө.
+            </p>
+            <p style="font-size: 12.5px; color: #0284c7; font-weight: 600">
+              Оюутны зөвлөгөө ба эрдэм шинжилгээний уулзалт
+            </p>
+          </div>
+
+          <div class="skill-card">
+            <h4>2. Magic Code AI - VIP Hub</h4>
+            <p>
+              Хан-Уул дүүрэг, Уранган групп, M bank Arena-гийн 1 давхарт, FOM
+              Coffee Shop.
+            </p>
+            <p style="font-size: 12.5px; color: #7c3aed; font-weight: 600">
+              VIP Class: AI + Data Analysis + Ethics (Бямба 10:00 - 13:00)
+            </p>
+          </div>
+
+          <div class="skill-card">
+            <h4>3. Magic Code AI ба МЗБЭЭХ Танхим</h4>
+            <p>Уран ганы зүүн талд, Цагдаа хотхон 30а байр.</p>
+            <p style="font-size: 12.5px; color: #b45309; font-weight: 600">
+              Data Analysis танхимын сургалт ба Бизнесийн зөвлөх төв
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================================
+             БЛОК 4: ЦАХИМ ЗУРВАС ИЛГЭЭХ МАЯГТ
+             =================================================== -->
+      <section class="content-block">
+        <h2 class="block-title">Зурвас Илгээх Маягт</h2>
+        <p>Та дараах маягтыг бөглөн хүсэлт, асуултаа илгээнэ үү:</p>
+
+        <div class="form-container">
+          <form action="#" method="post">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="fullname"
+                  >Таны овог, нэр: <span class="required">*</span></label
+                >
+                <input
+                  type="text"
+                  id="fullname"
+                  name="fullname"
+                  placeholder="Жишээ: Батын Дорж"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="email"
+                  >Цахим шуудан: <span class="required">*</span></label
+                >
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="Жишээ: user@example.com"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="phone"
+                  >Утасны дугаар: <span class="required">*</span></label
+                >
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  placeholder="Жишээ: 9911****, 9414****"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="subject_category"
+                  >Харилцах чиглэл: <span class="required">*</span></label
+                >
+                <select id="subject_category" name="subject_category" required>
+                  <option value="" disabled selected>-- Сонгоно уу --</option>
+                  <option value="magic_code_vip">
+                    Magic Code AI - VIP Class (3 сарын хөтөлбөр)
+                  </option>
+                  <option value="data_analysis">
+                    Data Analysis - From Data to Decision сургалт
+                  </option>
+                  <option value="power_bi">
+                    Power BI сургалт (IT Park хамтарсан)
+                  </option>
+                  <option value="num_academic">
+                    МУИС - Хичээл ба Оюутны судалгаа
+                  </option>
+                  <option value="mywea_director">
+                    МЗБЭЭХ - Эмэгтэйчүүдийн холбоо ба Түншлэл
+                  </option>
+                  <option value="consulting">
+                    Байгууллагын Дата ба ERP зөвлөх үйлчилгээ
+                  </option>
+                  <option value="other">Бусад асуулт, санал хүсэлт</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group-full">
+              <label for="message"
+                >Таны зурвас, асуулт: <span class="required">*</span></label
+              >
+              <textarea
+                id="message"
+                name="message"
+                rows="5"
+                placeholder="Та санал, хүсэлт, асуултаа энд тодорхой бичнэ үү..."
+                required
+              ></textarea>
+            </div>
+
+            <div class="form-actions">
+              <button type="submit" class="btn-submit">Хүсэлт илгээх</button>
+              <button type="reset" class="btn-reset">Цэвэрлэх</button>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <!-- ===================================================
+             БЛОК 5: ТҮГЭЭМЭЛ АСУУЛТ ХАРИУЛТ (FAQ)
+             =================================================== -->
+      <section class="content-block">
+        <h2 class="block-title">Түгээмэл Асуулт Хариулт</h2>
+        <p>
+          Сургалт, зөвлөх үйлчилгээтэй холбоотой түгээмэл асуултуудын
+          хариултууд:
+        </p>
+
+        <details class="faq-item">
+          <summary class="faq-header">
+            <span>1. Magic Code AI сургалтад хэрхэн бүртгүүлэх вэ?</span>
+            <span>[Нээх]</span>
+          </summary>
+          <div class="faq-body">
+            Та <strong>94140478</strong> утсаар холбогдож бүртгүүлэх эсвэл
+            энэхүү хуудасны маягтаар хүсэлт илгээж болно. Бүртгэл баталгаажсаны
+            дараа хичээлийн хуваарийн мэдээллийг хүргэнэ.
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-header">
+            <span
+              >2. МУИС-ийн оюутнууд эрдэм шинжилгээний удирдлага авахаар яаж
+              холбогдох вэ?</span
+            >
+            <span>[Нээх]</span>
+          </summary>
+          <div class="faq-body">
+            МУИС-ийн оюутнууд <strong>enkhtuya.ts@num.edu.mn</strong> хаягаар
+            сэдвийн саналаа илгээн урьдчилан цаг авч, МУИС-ийн 3-р байрны
+            МКУТ-ийн багш нарын өрөөнд уулзана.
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-header">
+            <span
+              >3. МЗБЭЭХ-ны үйл ажиллагаанд хэрхэн нэгдэх болон бизнесийн
+              зөвлөгөө авах вэ?</span
+            >
+            <span>[Нээх]</span>
+          </summary>
+          <div class="faq-body">
+            Монголын Залуу Бизнес Эрхлэгч Эмэгтэйчүүдийн Холбоо (MYWEA)-ны
+            Захирал Ц.Энхтуяа багштай <strong>94140478</strong> дугаараар
+            холбогдож цаг авах боломжтой.
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-header">
+            <span
+              >4. Байгууллагуудад зориулсан захиалгат дата сургалт явуулах
+              боломжтой юу?</span
+            >
+            <span>[Нээх]</span>
+          </summary>
+          <div class="faq-body">
+            Тийм. Тухайн байгууллагын онцлогт тохируулан Power BI хяналтын
+            самбар байгуулах, Excel ба SQL ашиглан автоматжуулалт хийх, AI
+            хэрэглээний сургалт зохион байгуулна.
+          </div>
+        </details>
+      </section>
+
+      <!-- ===================================================
+             БЛОК 6: ШУУРХАЙ ХОЛБООСУУД
+             =================================================== -->
+      <section class="content-block">
+        <h2 class="block-title">Сайтын Бусад Хуудсууд</h2>
+        <div style="margin-top: 10px">
+          <a href="index.html" class="btn">Нүүр хуудас</a>
+          <a href="about.html" class="btn btn-outline">Миний тухай</a>
+          <a href="muis.html" class="btn btn-outline"
+            >МУИС дахь үйл ажиллагаа</a
+          >
+          <a href="course.html" class="btn btn-outline">Хичээлүүд ба Сургалт</a>
+          <a href="business.html" class="btn btn-outline">Бизнес ба Нийгэм</a>
+          <a href="magic-code-ai.html" class="btn btn-outline">Magic Code AI</a>
+        </div>
+      </section>
+
+      <!-- ===================================================
+             ХӨЛ ХЭСЭГ (FOOTER)
+             =================================================== -->
+      <footer class="block-footer">
+        <p>
+          &copy; 2026 он. Цогтбаатарын Энхтуяа. Бүх эрх хуулиар хамгаалагдсан.
+        </p>
+        <p>
+          Монгол Улсын Их Сургууль &bull; Magic Code AI &bull; МЗБЭЭХ |
+          <a href="contact.html">Холбоо барих</a>
+        </p>
+      </footer>
+    </div>
+  </body>
+</html>

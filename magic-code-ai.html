@@ -1,0 +1,415 @@
+<!doctype html>
+<html lang="mn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Magic Code AI - Цогтбаатарын Энхтуяа</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      /* Энгийн танилцуулга хайрцаг */
+      .company-box {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        align-items: center;
+        background-color: #f8fafc;
+        border: 1px solid #cbd5e1;
+        border-left: 5px solid #7c3aed;
+        border-radius: 8px;
+        padding: 20px;
+        margin: 18px 0;
+      }
+
+      .company-logo-container {
+        flex: 0 0 130px;
+        text-align: center;
+        margin: 0 auto;
+      }
+
+      .company-logo-img {
+        width: 110px;
+        height: 110px;
+        border-radius: 8px;
+        border: 1px solid #cbd5e1;
+        background-color: #ffffff;
+        object-fit: contain;
+        display: block;
+        margin: 0 auto;
+        padding: 6px;
+        box-sizing: border-box;
+      }
+
+      .company-info {
+        flex: 1 1 300px;
+      }
+
+      .company-badge {
+        display: inline-block;
+        background-color: #f3e8ff;
+        color: #7c3aed;
+        border: 1px solid #d8b4fe;
+        padding: 4px 12px;
+        border-radius: 4px;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        margin-bottom: 8px;
+      }
+
+      .company-info h3 {
+        margin: 0 0 6px 0;
+        font-size: 20px;
+        color: #0f172a;
+      }
+
+      .company-slogan {
+        font-size: 14.5px;
+        color: #7c3aed;
+        font-weight: 600;
+        margin-bottom: 10px;
+      }
+
+      .company-info p {
+        margin: 0 0 8px 0;
+        font-size: 14px;
+        color: #334155;
+        line-height: 1.6;
+      }
+
+      /* 3 Постерийн тор бүтэц */
+      .posters-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 18px;
+        margin: 18px 0;
+      }
+
+      .poster-item {
+        background-color: #ffffff;
+        border: 1px solid #e2e8f0;
+        border-radius: 8px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .poster-item img {
+        width: 100%;
+        height: auto;
+        max-height: 320px;
+        object-fit: cover;
+        border-bottom: 1px solid #e2e8f0;
+        background: #f8fafc;
+      }
+
+      .poster-item-body {
+        padding: 16px;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .poster-item-body h4 {
+        margin: 0 0 6px 0;
+        font-size: 15.5px;
+        color: #0f172a;
+      }
+
+      .poster-item-body p {
+        font-size: 13px;
+        color: #475569;
+        margin-bottom: 10px;
+        line-height: 1.5;
+      }
+
+      @media (max-width: 768px) {
+        .company-box {
+          flex-direction: column;
+          text-align: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="site-wrapper">
+      <!-- ===================================================
+             БЛОК 1: НАВИГАЦИ ХЭСЭГ (Цайвар цэнхэр)
+             =================================================== -->
+      <header class="block-nav">
+        <h1 class="site-title">Цогтбаатарын Энхтуяа</h1>
+        <p class="site-subtitle">
+          МУИС-ийн багш | AI ба Гүн сургалтын судлаач | "Magic Code AI"-г үүсгэн
+          байгуулагч
+        </p>
+        <nav>
+          <ul>
+            <li><a href="index.html">Нүүр</a></li>
+            <li><a href="about.html">Миний тухай</a></li>
+            <li><a href="muis.html">МУИС</a></li>
+            <li><a href="course.html">Хичээлүүд</a></li>
+            <li><a href="business.html">Бизнес ба Нийгэм</a></li>
+            <li>
+              <a href="magic-code-ai.html" class="active">Magic Code AI</a>
+            </li>
+            <li><a href="contact.html">Холбоо барих</a></li>
+          </ul>
+        </nav>
+      </header>
+
+      <!-- ===================================================
+             БЛОК 2: MAGIC CODE AI БАЙГУУЛЛАГЫН ТАНИЛЦУУЛГА & ЛОГО
+             =================================================== -->
+      <section class="content-block">
+        <h2 class="block-title">
+          "Magic Code AI" Академи ба Технологийн Стартап
+        </h2>
+
+        <!-- Албан ёсны лого бүхий танилцуулга хайрцаг -->
+        <div class="company-box">
+          <div class="company-logo-container">
+            <img
+              src="images/magic-code-ai-logo.jpg"
+              alt="Magic Code AI албан ёсны лого"
+              class="company-logo-img"
+            />
+            <p style="font-size: 11px; color: #64748b; margin-top: 6px">
+              Албан ёсны лого
+            </p>
+          </div>
+          <div class="company-info">
+            <span class="company-badge">AI - DATA - ETHICS</span>
+            <h3>MAGIC CODE AI</h3>
+            <div class="company-slogan">
+              "Өгөгдлийг ойлгож, шийдэл гаргах чадвартай болъё!"
+            </div>
+            <p>
+              <strong>"Magic Code AI"</strong> нь МУИС-ийн багш, Компьютерийн
+              ухааны магистр, Тайванийн Үндэсний Төв Их Сургуулийн (NCU)
+              докторант <strong>Цогтбаатарын Энхтуяагийн</strong> үүсгэн
+              байгуулсан технологийн боловсрол, хиймэл оюуны шийдэл, мэргэжлийн
+              дата аналитикийн сургалтын академи юм.
+            </p>
+            <p>
+              Тус академи нь залуус, мэргэжилтнүүдэд орчин үеийн
+              <strong
+                >Хиймэл Оюун (AI), Гүн сургалт (Deep Learning), Их өгөгдөл (Data
+                Analysis), Power BI, Python</strong
+              >
+              болон
+              <strong
+                >Судалгааны ёс зүй (Ethics in Research), Кибер аюулгүй
+                байдлыг</strong
+              >
+              бодит дата төсөл дээр түшиглэн зааж сургадаг.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================================
+             БЛОК 3: ИДЭВХТЭЙ ЯВАГДАЖ БУЙ VIP БОЛОН ТАНХИМ СУРГАЛТУУД
+             =================================================== -->
+      <section class="content-block">
+        <h2 class="block-title">
+          Идэвхтэй Явагдаж Буй VIP болон Мэргэшүүлэх Хөтөлбөрүүд
+        </h2>
+        <p>
+          Magic Code AI нь зах зээлийн эрэлт хэрэгцээнд тулгуурлан дараах 3
+          үндсэн чиглэлээр сургалтуудаа явуулж байна:
+        </p>
+
+        <div class="posters-grid">
+          <!-- Карт 1: VIP Class 10 Сэдэв -->
+          <div class="poster-item">
+            <img
+              src="images/poster_vip_class_10topics.jpg"
+              alt="VIP Class 10 сэдэвт хөтөлбөрийн постер"
+            />
+            <div class="poster-item-body">
+              <div>
+                <span class="skill-tag">VIP Class - 3 сар</span>
+                <h4>VIP CLASS: AI + DATA ANALYSIS + ETHICS</h4>
+                <p>
+                  IT ба өгөгдлийн сангийн суурь, алгоритм, Python, машин
+                  сургалт, гүн сургалт, data mining, AI, сүлжээ, судалгааны ёс
+                  зүй, мэдээллийн аюулгүй байдал гэсэн 10 цогц сэдэв.
+                </p>
+                <p style="font-size: 12px; color: #64748b">
+                  Бямба гараг бүр 10:00 - 13:00 | FOM Coffee Shop (M bank Arena
+                  1 давхар)
+                </p>
+              </div>
+              <div style="margin-top: 10px">
+                <a
+                  href="course.html"
+                  class="btn"
+                  style="width: 100%; box-sizing: border-box"
+                  >Дэлгэрэнгүй хөтөлбөр харах</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Карт 2: Data Analysis From Data to Decision -->
+          <div class="poster-item">
+            <img
+              src="images/poster_data_analysis_magic.jpg"
+              alt="Data Analysis From Data to Decision постер"
+            />
+            <div class="poster-item-body">
+              <div>
+                <span class="skill-tag">Танхим ба Online</span>
+                <h4>DATA ANALYSIS: FROM DATA TO DECISION</h4>
+                <p>
+                  Excel (Pivot, VLOOKUP), SQL өгөгдлийн сан, Python (Pandas,
+                  NumPy, EDA) болон Power BI интерактив dashboard тайлан бүтээх
+                  цогц практик сургалт.
+                </p>
+                <p style="font-size: 12px; color: #64748b">
+                  Бодит дата төсөл - Дэмжлэгтэй орчин - Албан ёсны гэрчилгээ
+                </p>
+              </div>
+              <div style="margin-top: 10px">
+                <a
+                  href="course.html"
+                  class="btn"
+                  style="width: 100%; box-sizing: border-box"
+                  >Дэлгэрэнгүй хөтөлбөр харах</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Карт 3: Мэргэжлийн дата аналист бэлтгэх VIP -->
+          <div class="poster-item">
+            <img
+              src="images/poster_data_analyst_vip.jpg"
+              alt="Мэргэжлийн дата аналист бэлтгэх VIP сургалт"
+            />
+            <div class="poster-item-body">
+              <div>
+                <span class="skill-tag">Уян хатан хуваарь</span>
+                <h4>DATA ANALYST /PYTHON, POWER BI/ VIP</h4>
+                <p>
+                  3 сарын хугацаанд суралцах өдрөө өөрөө сонгон хичээллэх бүрэн
+                  боломжтой, МУИС-ийн туршлагатай багшийн ганцаарчилсан
+                  менторшип хөтөлбөр.
+                </p>
+                <p style="font-size: 12px; color: #64748b">
+                  Data Analyst мэргэжлээр ажиллахад чиглэсэн бодит портфолио
+                  бэлтгэнэ.
+                </p>
+              </div>
+              <div style="margin-top: 10px">
+                <a
+                  href="course.html"
+                  class="btn"
+                  style="width: 100%; box-sizing: border-box"
+                  >Дэлгэрэнгүй хөтөлбөр харах</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================================
+             БЛОК 4: MAGIC CODE AI-ИЙН ДАВУУ ТАЛУУД
+             =================================================== -->
+      <section class="content-block">
+        <h2 class="block-title">Сургалтын давуу талууд</h2>
+        <p>Magic Code AI академийн гол онцлог ба сургалтын арга барил:</p>
+
+        <div class="skills-grid">
+          <div class="skill-card">
+            <h4>17 Жилийн Туршлага</h4>
+            <p>
+              10,000 гаруй оюутанд компьютерийн шинжлэх ухаан заасан их
+              сургуулийн шилдэг академик багшийн системтэй заах арга барил.
+            </p>
+          </div>
+
+          <div class="skill-card">
+            <h4>Vibe Coding Бүтээмж</h4>
+            <p>
+              AI туслах хэрэгслүүдийг кодчилолд зөв ашиглан ажлын хурдыг
+              нэмэгдүүлэх, бүтээмжийг өсгөх арга зүй.
+            </p>
+          </div>
+
+          <div class="skill-card">
+            <h4>Бодит Дата Төсөл</h4>
+            <p>
+              Хийсвэр биш, бодит байгууллагуудын өгөгдөл дээр анализ хийж, зах
+              зээлд өрсөлдөх бодит портфолио бүтээх.
+            </p>
+          </div>
+
+          <div class="skill-card">
+            <h4>Албан Ёсны Гэрчилгээ</h4>
+            <p>
+              Хөтөлбөрийг амжилттай дүүргэсэн суралцагчдад Magic Code AI
+              академийн албан ёсны батламж, гэрчилгээ олгоно.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================================
+             БЛОК 5: ЭЛСЭЛТ & ХОЛБОО БАРИХ МЭДЭЭЛЭЛ
+             =================================================== -->
+      <section class="content-block">
+        <h2 class="block-title">Элсэлт авах ба Холбогдох мэдээлэл</h2>
+        <p>
+          Magic Code AI-ийн VIP болон танхим/онлайн сургалтуудын шинэ ангийн
+          бүртгэл явагдаж байна. Дараах сувгуудаар холбогдон мэдээлэл авна уу:
+        </p>
+
+        <div
+          style="
+            background-color: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            padding: 16px 20px;
+            margin: 16px 0;
+          "
+        >
+          <p style="margin: 4px 0; font-size: 14.5px">
+            <strong>Холбогдох утас:</strong> 94140478
+          </p>
+          <p style="margin: 4px 0; font-size: 14.5px">
+            <strong>Цахим шуудан:</strong> magiccodeai@gmail.com
+          </p>
+          <p style="margin: 4px 0; font-size: 14.5px">
+            <strong>Байршил 1:</strong> Уранган групп, M bank Arena 1 давхар
+            (FOM Coffee Shop)
+          </p>
+          <p style="margin: 4px 0; font-size: 14.5px">
+            <strong>Байршил 2:</strong> Уран ганы зүүн талд, Цагдаа хотхон 30а
+            байр
+          </p>
+        </div>
+
+        <div style="margin-top: 16px">
+          <a href="course.html" class="btn">Сургалтуудын дэлгэрэнгүйг үзэх</a>
+          <a href="business.html" class="btn btn-outline">Бизнес ба Нийгэм</a>
+          <a href="contact.html" class="btn btn-outline">Холбоо барих хуудас</a>
+        </div>
+      </section>
+
+      <!-- ===================================================
+             ХӨЛ ХЭСЭГ (FOOTER)
+             =================================================== -->
+      <footer class="block-footer">
+        <p>
+          &copy; 2026 он. Цогтбаатарын Энхтуяа. Бүх эрх хуулиар хамгаалагдсан.
+        </p>
+        <p>
+          "Magic Code AI" Академи &bull; МУИС МТЭС |
+          <a href="contact.html">Холбоо барих хуудас</a>
+        </p>
+      </footer>
+    </div>
+  </body>
+</html>
